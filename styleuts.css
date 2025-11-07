@@ -1,0 +1,306 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family:sans-serif;
+}
+
+
+.banner{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://wallpapers.com/images/hd/princess-background-9jold1lspu2d1o7y.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+}
+
+
+.navbar ul li{
+    list-style: none;
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+    margin: 0px 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #FDF8FF;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #BFA2E6;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px;
+    padding: 10px 20px; /* untuk membuat ruang background colour lebih besar dari teks */
+}
+
+.navbar ul li::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: rgb(253, 134, 223);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 3s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* tersembunyi */
+    width: 260px;
+    height: 100%;
+    background: rgba(255, 192, 203, 0.95);
+    box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+    border-radius: 0 15px 15px 0;
+    z-index: 1500;
+    padding: 20px;
+    transition: left 0.4s ease;
+    text-align: center;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar header {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background-color: #ff7096;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+/* Scrollbar lembut */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ffa8b8;
+  border-radius: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #ff7890;
+}
+
+#check{
+    display: none;
+}
+
+label #btn{
+    position: absolute;
+    cursor: pointer;
+    background:#BFA2E6;
+    border-radius: 3px;
+}
+
+label #btn{
+    position: fixed;
+    left: 40px;
+    top: 35px;
+    font-size: 35px;
+    color: white;
+    padding: 0 3px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+label #cancel{
+    position: fixed;
+    z-index: 1111;
+    left: -210px;
+    top: 45px;
+    font-size: 27px;
+    background-color: #BFA2E6;
+    border-radius: 50%;
+    padding: 6px 10px;
+    transition: all .5s ease;
+}
+
+#check:checked ~ .sidebar{
+    left: 0;
+}
+
+#check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel{
+    left: 70px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.content{
+    width: 100%;
+    position: relative;
+    transform: translate(0%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 40px;
+    font-family: 'Cinzel Decorative', serif;
+    color: #fd7597;
+    text-shadow: 10px 0 10px rgb(253, 234, 146);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+.content p{
+    margin: 30px auto;
+    font-weight: 100;
+    line-height: 20px;
+    color: #fff;
+    background-color: #ff809fb9;
+    border-radius: 15px;
+    padding: 10px 20px; 
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.content h1:hover {
+    color: #f72585;
+    transform: scale(1.1);
+    text-shadow: 10px 0 20px rgb(255, 220, 100);
+}
+
+@keyframes fadeIn {
+    to {opacity: 1;}
+}
+
+.fa-chess-queen {
+  color: rgb(253, 222, 45);
+  font-size: 290px;
+}
+
+.artikel-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    width: 80%;
+    justify-content: center;
+}
+
+.artikel{
+    background: rgba(255, 250, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px 40px;
+    margin: 50px auto;
+    width: 300px;
+    height: auto;
+    box-shadow: 0 6px 20px rgba(191, 162, 230, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.artikel h3 {
+    color: #9b6bcc;
+    font-size: 1.6em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.artikel img {
+    width: 90%;
+    border-radius: 12px;
+    margin: 10px 0;
+    box-shadow: 0 4px 15px rgba(191, 162, 230, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.artikel p {
+    max-width: 700px;
+    margin: 10px auto 20px;
+    line-height: 1.6;
+    color: #444;
+    font-size: 13px;
+}
+
+.artikel button {
+    border: none;
+    background: linear-gradient(90deg, #d6b7ff, #f5a3da);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.artikel button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(90deg, #c77aa8, #a689e6);
+}
+
+footer{
+    padding: 15px;
+    margin-bottom: 1%;
+}
+
+.sosial-icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 25px;
+    color: #fca04a;
+}
+
+.sosial-icons:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.desain-by p{
+    color: rgb(5, 2, 1);
+    text-align: center;
+    margin-top: 30px;
+}
+
+
