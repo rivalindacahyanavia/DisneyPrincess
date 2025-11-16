@@ -1,29 +1,30 @@
+function updateClock() {
+    const now = new Date();
 
-  // ===== FUNGSI UNTUK SIDEBAR =====
-  document.addEventListener('DOMContentLoaded', function() {
-const sidebar = document.getElementById('sidebar');
-const sidebarToggle = document.getElementById('sidebarToggle');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
 
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
 
-function openSidebar() {
-    sidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    let ampm = h >= 12 ? "PM" : "AM";
+
+    let hour12 = h % 12;
+    hour12 = hour12 ? hour12 : 12;
+
+    document.getElementById("clock").innerHTML = `${hour12}:${m}:${s} ${ampm}`;
+
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    let dayName = days[now.getDay()];
+    let monthName = months[now.getMonth()];
+    let date = now.getDate();
+
+    document.getElementById("date").innerHTML = `${dayName}, ${monthName} ${date}`;
 }
 
-function closeSidebar() {
-    sidebar.classList.remove('active');
-    sidebarOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-sidebarToggle.addEventListener('click', openSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-  closeSidebar();
-    }
-});
-  });
+setInterval(updateClock, 1000);
+updateClock();
